@@ -25,5 +25,5 @@ RabbitMQ Consumer 객체 구현
 - [X] 정의한 인터페이스를 구현하기
 - [X] 구현된 객체에서 처리해야 할 기능 구현하기
 - [X] 구현된 객체 메소드 단위 테스트 작성하기
-- [] RabbitMQ Queue Consume 이슈
+- [ ] RabbitMQ InitDeliveryChannel 이슈 해결
 - [X] SOLID 개발 패턴 적용 설명
