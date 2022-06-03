@@ -1,0 +1,27 @@
+[
+    {
+      "consumer": {
+        "name": "rabbitmq",
+        "config": {
+          "host": "amqp://user:bitnami@:::5672/",
+          "exchange_name": "",
+          "exchange_type": "",
+          "queue_name": "mock-data",
+          "routing_key": ""
+        }
+      },
+      "processors": [
+        {
+          "name": "noop"
+        }
+      ],
+      "storages": [
+        {
+          "name": "filesystem",
+          "config": {
+            "path": "fs/"
+          }
+        }
+      ]
+    }
+]
