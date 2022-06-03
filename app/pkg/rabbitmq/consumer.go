@@ -59,6 +59,7 @@ func (c *RabbitMQConsumer) Read(ctx context.Context) error {
 
 	//cCnsmr := c.Copy()
 
+	// Kafka 예제와 유사하게 함수 분리 필요
 	// 실제 데이터를 읽어오는 고루틴 생성
 	go func() {
 		for {
