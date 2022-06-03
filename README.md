@@ -1,2 +1,3 @@
-# solid-golang-class 1주차 강의 소스코드
+# solid-golang-class
 
+Go 대용량 처리 및 클린코드 스터디
