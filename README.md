@@ -1,8 +1,11 @@
 # solid-golang-class 1주차 강의 소스코드
 
+---
+
+01
 소프트웨어 엔지니어링의 개념 이해
 - 프로그래밍과 소프트웨어 엔지니어링의 차이
-
+---
 02
 Go 실무 예제로 보는 SOLID 개발 패턴 이해
 - Single responsibility: 단일 책임 원칙
@@ -10,7 +13,7 @@ Go 실무 예제로 보는 SOLID 개발 패턴 이해
 - Liskov substitution: 리스코프 치환 원칙
 - Interface segregation: 인터페이스 분리 원칙
 - Dependency inversion: 의존 관계 역전 원칙
-
+---
 03
 Go 데이터 처리 소프트웨어 개발 실무 1: 이벤트 기반 데이터 가져오기
 - Consumer・Processor・Storage Provider
@@ -19,7 +22,7 @@ Go 데이터 처리 소프트웨어 개발 실무 1: 이벤트 기반 데이터 
 - Consumer 객체 메소드 테스트
 - 이벤트 기반 데이터 처리 시뮬레이션
 - 적용된 SOLID 원칙 설명
-
+---
 과제
 RabbitMQ Consumer 객체 구현
 - [X] 정의한 인터페이스를 구현하기
