@@ -23,6 +23,7 @@ type Consumer interface {
 	FetchRecords() (map[string]interface{}, error)
 	ExchangeDeclare() error
 	QueueBind() error
+	QueueDeclare() error
 	InitDeliveryChannel() error
 
 	//Source 구현체에서 필요한 인터페이스

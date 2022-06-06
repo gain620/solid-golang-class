@@ -35,11 +35,12 @@ func NewRabbitMQConsumerClient(config jsonObj) Consumer {
 
 	// RabbitMQConsumerConfig 값을 담기 위한 오브젝트
 	rmqCnsmr := rabbitmq.NewRabbitMQConsumer(config)
+	rmqSrc := sources.NewRabbitMQSource(rmqCnsmr)
 
 	// create a new Consumer concrete type - RabbitMQConsumer
 	client := &RabbitMQConsumerClient{
 		Consumer: rmqCnsmr,
-		Source:   sources.NewRabbitMQSource(rmqCnsmr),
+		Source:   rmqSrc,
 	}
 	return client
 }
@@ -56,11 +57,16 @@ func (rc *RabbitMQConsumerClient) Init() error {
 		return err
 	}
 
-	// InitDeliveryChannel
-	err = rc.InitDeliveryChannel()
+	err = rc.QueueDeclare()
 	if err != nil {
 		return err
 	}
+
+	// InitDeliveryChannel
+	//err = rc.InitDeliveryChannel()
+	//if err != nil {
+	//	return err
+	//}
 
 	return nil
 }

@@ -14,7 +14,7 @@ func TestRabbitMQConsumerClient_Consume(t *testing.T) {
 	//TODO: 1주차 과제 구현
 
 	configPath := getCurDir() + "/test/consumers/rabbitmq.json"
-	os.Setenv("EDP_ENABLE_DEBUG_LOGGING", "true")
+	os.Setenv("EDP_ENABLE_DEBUG_LOGGING", "false")
 	os.Setenv("EDP_CONFIG", configPath)
 	os.Args = nil
 	arg.MustParse(&cli.Args)
@@ -42,6 +42,8 @@ func TestRabbitMQConsumerClient_Consume(t *testing.T) {
 		cfgParams["pipeParams"] = pipeParams
 		cfgParams["consumerCfg"] = cfg.Consumer.Config
 
+		// 리스코프 치환
+		// 이벤트 타입별 컨슈머 생성
 		rmqCnsmr, err := CreateConsumer(cfg.Consumer.Name, cfgParams)
 		if err != nil {
 			t.Error(err)
