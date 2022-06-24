@@ -9,7 +9,7 @@ WORKDIR /app
 COPY go.mod go.sum main.go scripts/setup.sh ./
 COPY pkg pkg
 COPY cmd cmd
-COPY vendor vendor
+#COPY vendor vendor
 RUN mkdir -p configs
 RUN chmod +x setup.sh \
     && ./setup.sh
