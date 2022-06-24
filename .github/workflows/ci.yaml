@@ -1,0 +1,59 @@
+name: Build and push docker image
+on:
+  push:
+    branches: [ week-4 ]
+
+env:
+  GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
+  USERNAME: ${{ secrets.USERNAME }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./app
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+#      - name: Set up Go
+#        uses: actions/setup-go@v3
+#        with:
+#          go-version: 1.17
+
+      - name: Set up docker buildx
+        uses: docker/setup-buildx-action@v1
+
+#      - name: Cache Docker layers
+#        uses: actions/cache@v2
+#        with:
+#          path: /tmp/.buildx-cache
+#          key: ${{ runner.os }}-buildx-${{ github.sha }}
+#          restore-keys: |
+#            ${{ runner.os }}-buildx-
+
+      - name: Login to docker registry
+        uses: docker/login-action@v1.12.0
+        with:
+          registry: ghcr.io
+          username: ${{github.repository_owner}}
+          password: ${{ GHCR_TOKEN }}
+
+      - name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          registry: ghcr.io
+          context: app
+          dockerfile: ./app/Dockerfile
+          push: true
+          tags: | 
+            ghcr.io/${{github.repository_owner}}/edp:v1
+            ghcr.io/${{github.repository_owner}}/edp:latest
+
+#      - name: Move cache
+#        run: |
+#          rm -rf /tmp/.buildx-cache
+#          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
