@@ -21,8 +21,8 @@ LABEL maintainer="gainchang620@gmail.com"
 
 ENV APP_USER edp
 ENV APP_GROUP edp
-ENV APP_UID 666
-ENV APP_GID 666
+ENV APP_UID 777
+ENV APP_GID 777
 
 WORKDIR /app
 
