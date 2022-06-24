@@ -21,8 +21,16 @@ FROM alpine:3.15.0
 LABEL maintainer="gainchang620@gmail.com"
 
 ENV APP_USER edp
+ENV APP_UID 666
 
 WORKDIR /app
+
+RUN adduser \
+    --disabled-password \
+    --no-create-home \
+    --uid ${APP_UID} \
+    ${APP_USER}; \
+    chown -R ${APP_USER} /app
 
 COPY --from=build /app/bin/event-data-pipeline ./
 COPY --from=build /app/configs ./configs
