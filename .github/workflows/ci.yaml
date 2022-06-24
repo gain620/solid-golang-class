@@ -38,8 +38,8 @@ jobs:
         uses: docker/login-action@v1.12.0
         with:
           registry: ghcr.io
-          username: $USERNAME
-          password: $GHCR_TOKEN
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.GHCR_TOKEN }}
 
       - name: Build and push
         id: docker_build
@@ -50,8 +50,8 @@ jobs:
           dockerfile: ./app/Dockerfile
           push: true
           tags: | 
-            ghcr.io/$USERNAME/edp:v1
-            ghcr.io/$USERNAME/edp:latest
+            ghcr.io/${{ secrets.USERNAME }}/edp:v1
+            ghcr.io/${{ secrets.USERNAME }}/edp:latest
 
 #      - name: Move cache
 #        run: |
