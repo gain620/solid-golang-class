@@ -15,8 +15,7 @@ RUN chmod +x setup.sh \
     && ./setup.sh
 
 ## Deploy Stage
-#FROM alpine:3.15.0
-FROM gcr.io/distroless/static
+FROM alpine:3.15.0
 
 LABEL maintainer="gainchang620@gmail.com"
 
@@ -42,5 +41,4 @@ COPY --from=build /app/bin/event-data-pipeline ./
 COPY --from=build /app/configs ./configs
 
 USER ${APP_USER}
-#USER nonroot:nonroot
 ENTRYPOINT [ "./event-data-pipeline" ]
