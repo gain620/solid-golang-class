@@ -47,6 +47,7 @@ jobs:
         with:
           registry: ghcr.io
           context: app
+          platforms: windows/amd64
           dockerfile: ./app/Dockerfile
           push: true
           tags: | 
