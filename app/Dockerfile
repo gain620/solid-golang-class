@@ -16,7 +16,6 @@ RUN chmod +x setup.sh \
 
 ## Deploy Stage
 FROM alpine:3.15.0
-
 LABEL maintainer="gainchang620@gmail.com"
 
 ENV APP_USER edp

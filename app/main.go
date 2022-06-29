@@ -18,7 +18,7 @@ func main() {
 }
 
 func PrintLogo() {
-	logo := figure.NewColorFigure("Youngstone", "", "green", true)
+	logo := figure.NewColorFigure("MUON", "", "green", true)
 	logo.Print()
 	class := figure.NewColorFigure("Week 4 - SOLID GO", "", "yellow", true)
 	class.Print()
