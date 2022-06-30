@@ -10,8 +10,8 @@ revisionHistoryLimit: 10
 
 # 이미지 설정
 image:
-  repository: youngstone89/event-data-pipeline
-  tag: latest
+  repository: ghcr.io/gain620/edp
+  tag: v1
   pullPolicy: Always
 imagePullSecrets: []
 nameOverride: ''

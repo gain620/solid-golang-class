@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   event-data-pipeline:
-    image: youngstone89/event-data-pipeline:latest
+    image: ghcr.io/gain620/edp:v1
     environment:
       - EDP_ENABLE_DEBUG_LOGGING=true
       - EDP_CONFIG=configs/config.docker_compose.json
