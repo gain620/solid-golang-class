@@ -1,22 +1,30 @@
 package main
 
 import (
-	"event-data-pipeline/cmd"
-	"event-data-pipeline/cmd/server"
 	"event-data-pipeline/pkg"
-	"event-data-pipeline/pkg/config"
-	"event-data-pipeline/pkg/logger"
+	"event-data-pipeline/pkg/consumers"
 	"fmt"
-
 	"github.com/common-nighthawk/go-figure"
+	"log"
+	"reflect"
+	"runtime"
 )
 
 func main() {
 	PrintLogo()
-	logger.Setup()
-	cfg := config.NewConfig()
-	http := server.NewHttpServer()
-	cmd.Run(*cfg, http)
+	//logger.Setup()
+	//cfg := config.NewConfig()
+	//http := server.NewHttpServer()
+	//cmd.Run(*cfg, http)
+
+	for _, f := range consumers.GetFilterList() {
+		err := f("testsetset")
+		if err != nil {
+			log.Fatalf("err : %v", err)
+		}
+		funcName1 := runtime.FuncForPC(reflect.ValueOf(f).Pointer())
+		fmt.Println(funcName1)
+	}
 }
 
 func PrintLogo() {
